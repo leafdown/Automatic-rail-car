@@ -12,7 +12,7 @@ bit SV_flag=0;//垂直光电开关标志位
 bit SV_flag1=0;//垂直光电开关标志位
 bit SH_flag=0;
 bit SH_flag1=0;
-bit time_flag=1;//时间倒计时标志
+bit time_flag=0;//时间倒计时标志
 bit start_flag=0;//启动标志
 bit test_run=0;//测试运行标志
 bit end_flag=0;
@@ -23,7 +23,8 @@ float hour,hour1,hour2,hour3,hour4;
 
 void init(void)
 {
-  time_flag=1;//时间倒计时标志
+  if((LEFTLIMIT==0&&RIGHTLIMIT==1)||(LEFTLIMIT==1&&RIGHTLIMIT==0))
+    time_flag=1;//时间倒计时标志
   start_flag=0;//启动标志
   test_run=0;//测试运行标志
 	motor1_right_flag=0;
